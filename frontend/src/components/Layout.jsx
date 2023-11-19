@@ -1,9 +1,8 @@
-import Navbar from "./Navbar.jsx";
+import FirstNavbar from "./FirstNavbar.jsx";
 
 function Layout({children}) {
     return (
-        <div className="w-full h-screen">
-            <Navbar/>
+        <div className="">
             {children}
         </div>
     );
