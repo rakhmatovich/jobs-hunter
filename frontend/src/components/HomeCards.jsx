@@ -13,11 +13,7 @@ function HomeCards({jobs, setJobs}) {
             <p className='font-bold text-xl'>We recommend you</p>
             <p className=''>Picked up for the summary "Web-programmer"</p>
 
-
-
-            <div className="flex flex-wrap gap-5 ">
-
-
+            <div className="flex flex-wrap gap-5 mb-10">
                 {jobs && jobs.map((job) => (
                     <div
                         key={job.id}
