@@ -1,9 +1,12 @@
-import FirstNavbar from "./FirstNavbar.jsx";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 
 function Layout({children}) {
     return (
-        <div className="">
+        <div>
+            <Navbar />
             {children}
+            <Footer />
         </div>
     );
 }
