@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Account from "./pages/Account.jsx";
 import RepliesPage from "./pages/RepliesPage.jsx";
 import ReplyDetail from "./pages/ReplyDetail.jsx";
+import Summaries from "./pages/Summaries.jsx";
 
 function Router() {
     return (
@@ -14,6 +15,7 @@ function Router() {
                 <Route path='/account' element={<Account />}/>
                 <Route path='/replies' element={<RepliesPage />}/>
                 <Route path='/details' element={<ReplyDetail />}/>
+                <Route path='/summaries' element={<Summaries />}/>
             </Routes>
         </BrowserRouter>
     );

@@ -1,20 +1,22 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function Navbar() {
     return (
         <nav className="w-full bg-[#222324] flex items-center justify-center">
-            <img src="/Small-removebg-preview.png" alt="" className='w-[110px]'/>
+            <Link to='/home' >
+                <img src="/Small-removebg-preview.png" alt="" className='w-[110px]'/>
+            </Link>
+
             <div className="w-[80%] flex items-center justify-between py-5">
                 <div className="flex gap-4 justify-between">
-                    <a href="#"
+                    <a href="/summaries"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">My
-                        Summary</a>
+                        Summaries</a>
                     <a href="/replies"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Replies</a>
                     <a href="#"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</a>
-                    <a href="/home"
-                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Home</a>
                 </div>
                 <div className='flex gap-4 justify-between'>
                     <button
