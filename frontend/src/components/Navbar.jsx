@@ -10,13 +10,15 @@ function Navbar() {
 
             <div className="w-[80%] flex items-center justify-between py-5">
                 <div className="flex gap-4 justify-between">
-                    <a href="/summaries"
+                    <Link to="/summaries"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">My
-                        Summaries</a>
-                    <a href="/replies"
-                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Replies</a>
-                    <a href="#"
-                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</a>
+                        Summaries</Link>
+                    <Link to="/replies"
+                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Replies</Link>
+                    <Link to="#"
+                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</Link>
+                       <Link to="/works"
+                       className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Work</Link>
                 </div>
                 <div className='flex gap-4 justify-between'>
                     <button

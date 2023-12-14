@@ -13,7 +13,7 @@ function Charts() {
     const [charts, setCharts] = useState(defaultCharts)
     return (
         <div className='flex flex-col'>
-             <div className='flex gap-[450px] mb-5'>
+             <div className='flex text-center justify-between p-4 font-semibold text-[22px]'>
                     <p className='text-gray-600'>Status</p>
                     <p className='text-gray-600'>Vacancy</p>
                     <p className='text-gray-600'>Date</p>

@@ -6,8 +6,9 @@ import Charts from "../components/Charts.jsx";
 function RepliesPage() {
     return (
         <Layout>
-            <div className="px-20">
-                <h1 className="text-[28px] font-semibold mt-5">Отклики и приглашения</h1>
+            <div className="px-28 w-full">
+                <h1 className="text-[28px] font-semibold mt-5 p-4">Отклики и приглашения</h1>
+                <div className="border" />
                 <Charts />
                 <Replies/>
             </div>

@@ -14,7 +14,7 @@ const defaultVacancies = [
 function Vacancies() {
     const [vacancies, setVacancies] = useState(defaultVacancies)
     return (
-        <div className='flex flex-col pb-10 ml-[500px] -mt-[600px]'>
+        <div className='flex flex-col pb-10 w-full'>
             {vacancies && vacancies.map(vacancy => (
                 <Vacancy
                 title={vacancy.title}
