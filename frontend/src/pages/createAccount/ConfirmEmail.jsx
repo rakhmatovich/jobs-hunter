@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import SecondNavbar from "../../components/SecondNavbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import {useNavigate} from "react-router-dom";
+import {UserProvider} from "../../Router.jsx";
 
 function ConfirmEmail() {
+    const {emailCode, setEmailCode} = useContext(UserProvider);
     const [timeLeft, setTimeLeft] = useState(60);
     const [code, setCode] = useState('')
 
@@ -23,7 +25,9 @@ function ConfirmEmail() {
     const navigate = useNavigate()
     const handleSubmit = event => {
         event.preventDefault()
-        if (code)  navigate('/name')
+        if (code === emailCode) {
+            navigate('/name')
+        }
     }
 
     const resend = () => {

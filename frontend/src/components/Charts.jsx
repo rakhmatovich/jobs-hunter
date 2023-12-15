@@ -18,11 +18,12 @@ function Charts() {
                     <p className='text-gray-600'>Vacancy</p>
                     <p className='text-gray-600'>Date</p>
                 </div>
-            {charts && charts.map(chart => (
+            {charts && charts.map((chart, index) => (
                 <Chart
                     status={chart.status}
                     title={chart.title}
                     date={chart.date}
+                    index={index}
                 />
             ))}
         </div>

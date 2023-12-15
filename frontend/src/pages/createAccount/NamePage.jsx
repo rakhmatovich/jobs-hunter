@@ -1,6 +1,6 @@
 import React from "react";
 import SecondNavbar from "../../components/SecondNavbar.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer.jsx";
 
 function NamePage() {
@@ -21,11 +21,13 @@ function NamePage() {
         >
           <h1 className="text-xl text-center">Lets Get Acquainted</h1>
           <input
+              className="border-gray-600 border rounded px-3 py-2 outline-none"
             type="text"
             required={true}
             placeholder="First Name"
           />
           <input
+              className="border-gray-600 border rounded px-3 py-2 outline-none"
             type="text"
             required={true}
             placeholder="Last Name"
