@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Work({name}) {
+export default function Work({ name }) {
   return (
     <div>
-      <button className='bg-transparent border-black rounded p-[10px]'>{name}</button>
+      <Link to='/userdetails'>
+        <button className="bg-transparent rounded-2xl p-[5px] border border-gray-400 focus:bg-gray-500">
+          {name}
+        </button>
+      </Link>
     </div>
-  )
+  );
 }

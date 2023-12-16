@@ -9,6 +9,7 @@ import SignUp from "./pages/createAccount/SignUp.jsx";
 import NamePage from "./pages/createAccount/NamePage.jsx";
 import ConfirmEmail from "./pages/createAccount/ConfirmEmail.jsx";
 import ChooseWorks from "./pages/createSummary/ChooseWorks.jsx";
+import UserDetail from "./components/UserDetail.jsx";
 
 function Router() {
     
@@ -25,6 +26,7 @@ function Router() {
                 <Route path='/name' element={<NamePage />}/>
                 <Route path='/confirm' element={<ConfirmEmail />}/>
                 <Route path='/works' element={<ChooseWorks />}/>
+                <Route path='/userdetail' element={<UserDetail />}/>
             </Routes>
         </BrowserRouter>
     );
