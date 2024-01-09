@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Layout from "../components/Layout.jsx";
 import HomeCards from "../components/HomeCards.jsx";
+import {Navigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const testJobs = [
     {id: 1, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: true},
@@ -11,8 +13,15 @@ const testJobs = [
     {id: 6, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: false},
 ]
 
-function Home(props) {
+function Home() {
     const [jobs, setJobs] = useState(testJobs)
+    const user = localStorage.getItem('user')
+
+
+    if (!user) {
+        toast.error('You have to authorize')
+        return <Navigate to='/'/>
+    }
 
     return (
         <Layout>
@@ -31,7 +40,8 @@ function Home(props) {
                         <p className='text-2xl font-semibold'>My Events</p>
                     </div>
                     <div className="flex">
-                        <a href='/replies' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Replies and invitations</a>
+                        <a href='/replies' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Replies and
+                            invitations</a>
                     </div>
                     <div className="flex">
                         <a href='#' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Saved vacancies</a>
@@ -39,10 +49,9 @@ function Home(props) {
                     <div className="flex">
                         <a href='#' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Auto Searches</a></div>
                     <div className="flex">
-                        <a href='/' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Go Back to starter page</a></div>
+                        <a href='/' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Go Back to starter
+                            page</a></div>
                 </div>
-
-
 
 
                 <HomeCards jobs={jobs} setJobs={setJobs}/>

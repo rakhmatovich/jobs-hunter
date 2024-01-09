@@ -1,9 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import SecondNavbar from "../../components/SecondNavbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import {useNavigate} from "react-router-dom";
+import {UserProvider} from "../../Router.jsx";
+import {toast} from "react-toastify";
 
 function ConfirmEmail() {
+    const {emailCode} = useContext(UserProvider);
     const [timeLeft, setTimeLeft] = useState(60);
     const [code, setCode] = useState('')
 
@@ -23,7 +26,12 @@ function ConfirmEmail() {
     const navigate = useNavigate()
     const handleSubmit = event => {
         event.preventDefault()
-        if (code)  navigate('/name')
+        if (code === emailCode) {
+            toast.success('You successfully confirmed your email')
+            navigate('/name')
+            return
+        }
+        toast.error('Wrong passcode')
     }
 
     const resend = () => {

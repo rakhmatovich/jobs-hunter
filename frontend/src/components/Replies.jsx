@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Reply from "./Reply.jsx";
 import Card from "./Card.jsx";
+import ReplyDetail from '../pages/ReplyDetail.jsx';
 
 
 const defaultReplies = [

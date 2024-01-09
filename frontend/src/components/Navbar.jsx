@@ -17,7 +17,7 @@ function Navbar() {
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Replies</Link>
                     <Link to="#"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</Link>
-                       <Link to="/works"
+                       <Link to="/works/choose-job"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Work</Link>
                 </div>
                 <div className='flex gap-4 justify-between'>

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_experiences",
+  "info": {
+    "singularName": "user-experience",
+    "pluralName": "user-experiences",
+    "displayName": "User Experience"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
+    },
+    "details": {
+      "type": "text"
+    },
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "summary": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::summary.summary",
+      "mappedBy": "user_experience"
+    }
+  }
+}

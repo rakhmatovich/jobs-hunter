@@ -1,9 +1,16 @@
-import Layout from "../components/Layout.jsx";
 import FirstNavbar from "../components/FirstNavbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Cards from "../components/Cards.jsx";
+import {Navigate} from 'react-router-dom'
+
 
 function GetStarted() {
+    const user = localStorage.getItem('user')
+
+    if(user) {
+        return <Navigate to='/home'/>
+    }
+
     return (
         <div className="w-full h-screen bg-[url(/hero.jpg)] bg-center bg-cover">
             <div className="w-full h-screen bg-black/60">

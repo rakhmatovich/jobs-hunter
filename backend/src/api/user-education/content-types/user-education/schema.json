@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_educations",
+  "info": {
+    "singularName": "user-education",
+    "pluralName": "user-educations",
+    "displayName": "User Education"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ending_year": {
+      "type": "string"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Middle",
+        "Middle Special",
+        "Not ended Upper",
+        "Upper",
+        "Bachelor",
+        "Magister",
+        "PhD",
+        "DS"
+      ]
+    },
+    "facility": {
+      "type": "string"
+    },
+    "faculity": {
+      "type": "string"
+    },
+    "specialization": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::summary.summary",
+      "mappedBy": "user_education"
+    }
+  }
+}

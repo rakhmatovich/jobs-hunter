@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "summaries",
+  "info": {
+    "singularName": "summary",
+    "pluralName": "summaries",
+    "displayName": "Summary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "job_title": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "region": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "user_education": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-education.user-education",
+      "inversedBy": "summary"
+    },
+    "user_experience": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-experience.user-experience",
+      "inversedBy": "summary"
+    }
+  }
+}
