@@ -712,6 +712,12 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::reply.reply'
     >;
+    hasSummary: Attribute.Boolean;
+    summary: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::summary.summary'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -924,6 +930,11 @@ export interface ApiSummarySummary extends Schema.CollectionType {
       'api::summary.summary',
       'oneToOne',
       'api::user-experience.user-experience'
+    >;
+    user: Attribute.Relation<
+      'api::summary.summary',
+      'oneToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

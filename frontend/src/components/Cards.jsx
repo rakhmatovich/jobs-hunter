@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Card from "./Card.jsx";
 
-const defaultJobs = [
+const jobs = [
     {id: 1, title: 'Featured jobs', minSalary: '3000000', maxSalary: '8000000', positions: 14, color: '#EB6B6B'},
     {id: 2, title: 'Featured companies', positions: 102, color: '#EB6B6B'},
     {id: 3, title: 'Work from home', positions: 276, color: '#EB6B6B'},
@@ -17,12 +17,12 @@ const defaultJobs = [
 ]
 
 function Cards() {
-    const [jobs, setJobs] = useState(defaultJobs)
 
     return (
         <div className='flex justify-between flex-wrap px-20 py-10'>
             {jobs && jobs.map(job => (
                 <Card
+                    key={job.id}
                     title={job.title}
                     minSalary={job.minSalary}
                     maxSalary={job.maxSalary}

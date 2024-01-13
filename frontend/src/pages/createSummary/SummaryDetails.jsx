@@ -1,10 +1,38 @@
 import React, { useState } from "react";
 import SummaryLayout from "../../components/SummaryLayout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { CREATE_SUMMARY } from "../../utils/urls";
 
 export default function SummaryDetails({ jobName }) {
   const [phone, setPhone] = useState("+998");
   const [isMan, setIsMan] = useState(true);
+  const [date, setDate] = useState("");
+  const [region, setRegion] = useState("");
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  
+  const navigate = useNavigate()
+
+  const createSummary = () => {
+    axios
+      .post(CREATE_SUMMARY, {
+        data: {
+          job_title: jobName,
+          gender: isMan ? "male" : "female",
+          birthday: date,
+          region,
+          phone,
+          user: user.id,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("summary-id", JSON.stringify(res.data.data.id));
+        navigate('/works/education')      
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <SummaryLayout title="Заполните основную информацию">
       <div className="ml-[50px] flex flex-col items-center">
@@ -16,6 +44,7 @@ export default function SummaryDetails({ jobName }) {
             <h1 className="font-bold">Second Name</h1>
             <input
               type="text"
+              value={user.lastname}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
             />
           </div>
@@ -23,6 +52,7 @@ export default function SummaryDetails({ jobName }) {
             <h1 className="font-bold">First Name</h1>
             <input
               type="text"
+              value={user.username}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
             />
           </div>
@@ -61,6 +91,8 @@ export default function SummaryDetails({ jobName }) {
             <h1 className="font-bold">Your Region</h1>
             <input
               type="text"
+              value={region}
+              onInput={(e) => setRegion(e.target.value)}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
             />
           </div>
@@ -68,6 +100,8 @@ export default function SummaryDetails({ jobName }) {
             <h1 className="font-bold">Your Birthday</h1>
             <input
               type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
             />
           </div>
@@ -83,12 +117,18 @@ export default function SummaryDetails({ jobName }) {
           </div>
         </form>
         <div className="flex justify-between mt-10 w-full border-t border-gray-400 pt-5">
-          <Link to="/works/choose-job" className="rounded-lg border border-gray-400 px-3 py-2">
+          <Link
+            to="/works/choose-job"
+            className="rounded-lg border border-gray-400 px-3 py-2"
+          >
             Go back
           </Link>
-          <Link to="/works/education" className="rounded-lg border border-gray-400 px-3 py-2">
+          <button
+            onClick={createSummary}
+            className="rounded-lg border border-gray-400 px-3 py-2"
+          >
             Save and Continue
-          </Link>
+          </button>
         </div>
       </div>
     </SummaryLayout>

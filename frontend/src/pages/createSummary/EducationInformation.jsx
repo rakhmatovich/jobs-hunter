@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import SummaryLayout from "../../components/SummaryLayout";
 import { Link } from "react-router-dom";
 
 const EducationInformation = ({ jobName }) => {
+
+  const [facility, setFacility] = useState('')
+  const [faculity, setFaculity] = useState('')
+  const [specialization, setSpecialization] = useState('')
+  const [year, setYear] = useState('')
+
+
+
   return (
     <SummaryLayout title={"What Education Did You End ?"}>
       <div className="flex flex-col">
@@ -16,6 +24,8 @@ const EducationInformation = ({ jobName }) => {
             </h1>
             <input
               type="text"
+              onInput={e => setFacility(e.target.value)}
+              value={facility}
               placeholder="Learning Facility Name"
               className="outline-none px-3 py-1 border border-gray-400 w-full"
             />
@@ -24,6 +34,8 @@ const EducationInformation = ({ jobName }) => {
             <h1 className="text-xl font-bold mb-4">Faculity</h1>
             <input
               type="text"
+              onInput={e => setFaculity(e.target.value)}
+              value={faculity}
               className="outline-none px-3 py-1 border border-gray-400 w-full"
             />
           </div>
@@ -31,6 +43,8 @@ const EducationInformation = ({ jobName }) => {
             <h1 className="text-xl font-bold mb-4">Specialization</h1>
             <input
               type="text"
+              onInput={e => setSpecialization(e.target.value)}
+              value={specialization}
               className="outline-none px-3 py-1 border border-gray-400 w-full"
             />
           </div>
@@ -38,6 +52,8 @@ const EducationInformation = ({ jobName }) => {
             <h1 className="text-xl font-bold mb-4">Year of Ending</h1>
             <input
               type="text"
+              onInput={e => setYear(e.target.value)}
+              value={year}
               className="outline-none px-3 py-1 border border-gray-400 "
             />
           </div>

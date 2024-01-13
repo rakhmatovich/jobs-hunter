@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Layout from "../components/Layout.jsx";
 import HomeCards from "../components/HomeCards.jsx";
-import {Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
 const testJobs = [
@@ -31,14 +31,11 @@ function Home() {
                     className='border border-[#babdbf] w-[50%] font-[14px] px-4 py-2 rounded'
                     placeholder="Jobs, ..."
                 />
-                <button className='bg-blue-700 text-white ml-[10px] py-2 px-8 rounded'>Find</button>
+                <Link to='/summaries' className='bg-blue-700 text-white ml-[10px] py-2 px-8 rounded'>Find</Link>
             </div>
 
             <div className='flex w-[100%] mx-auto border-t border-gray-400'>
                 <div className="w-[50%] m-1 border-r border-gray-400 pt-10 ml-[100px]">
-                    <div className="flex">
-                        <p className='text-2xl font-semibold'>My Events</p>
-                    </div>
                     <div className="flex">
                         <a href='/replies' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Replies and
                             invitations</a>
@@ -47,10 +44,7 @@ function Home() {
                         <a href='#' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Saved vacancies</a>
                     </div>
                     <div className="flex">
-                        <a href='#' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Auto Searches</a></div>
-                    <div className="flex">
-                        <a href='/' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Go Back to starter
-                            page</a></div>
+                        <a href='/summaries' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Auto Searches</a></div>
                 </div>
 
 

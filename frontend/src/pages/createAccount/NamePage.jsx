@@ -26,7 +26,7 @@ function NamePage() {
         axios
             .post(USERS, {
                 username: firstname,
-                secondname,
+                lastname: secondname,
                 email,
                 confirmed: true,
                 role: 1,

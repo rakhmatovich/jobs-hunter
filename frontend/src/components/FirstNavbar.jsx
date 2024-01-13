@@ -17,17 +17,13 @@ function FirstNavbar() {
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</a>
                 </div>
                 <div className='flex gap-4 justify-between'>
-                    <Link
-                        to='/works/choose-job'
-                        className="px-4 py-1 text-green-400 border-green-900 rounded-full border md:hover:bg-transparent hover:border-green-400 md:hover:border-green-400 md:border md:p-1 md:px-4 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl"
-                    >
-                        Create
-                        Summary
-                    </Link>
                     <Link to='/signup'
                           className="px-4 py-1 text-white border-gray-500 rounded-full border hover:border-white md:hover:bg-transparent md:hover:border-white md:border md:p-1 md:px-4 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">
-                        Log
-                        in
+                        Sign Up
+                    </Link>
+                    <Link to='/login'
+                          className="px-4 py-1 text-white border-gray-500 rounded-full border hover:border-white md:hover:bg-transparent md:hover:border-white md:border md:p-1 md:px-4 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">
+                        Log in
                     </Link>
                 </div>
             </div>

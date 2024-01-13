@@ -24,12 +24,6 @@ function HomeCards({jobs, setJobs}) {
                                     className="text-xl font-medium text-neutral-800 dark:text-neutral-50">
                                     {job.title}
                                 </h5>
-                                <img
-                                    onClick={() => handleLike(job.id)}
-                                    className='w-[30px] cursor-pointer'
-                                    src={job.like ? '/Heartfull.png' : '/Heartempty.png'}
-                                    alt="like"
-                                />
                             </div>
 
                             <p className="mb-2 text-base">

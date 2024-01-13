@@ -73,6 +73,15 @@
       "relation": "oneToMany",
       "target": "api::reply.reply",
       "mappedBy": "user"
+    },
+    "hasSummary": {
+      "type": "boolean"
+    },
+    "summary": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::summary.summary",
+      "mappedBy": "user"
     }
   }
 }
