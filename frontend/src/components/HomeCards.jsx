@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HomeCards({jobs, setJobs}) {
+function HomeCards({jobs, setJobs, jobName}) {
     const handleLike = (id) => {
         setJobs(jobs.map(item => {
             if (item.id === id) item.like = !item.like
@@ -11,7 +11,7 @@ function HomeCards({jobs, setJobs}) {
 
         <div className=' mt-[20px] ml-[30px]'>
             <p className='font-bold text-xl'>We recommend you</p>
-            <p className=''>Picked up for the summary "Web-programmer"</p>
+            <p className=''>Picked up for the summary "{jobName}"</p>
 
             <div className="flex flex-wrap gap-5 mb-10">
                 {jobs && jobs.map((job) => (
@@ -26,9 +26,6 @@ function HomeCards({jobs, setJobs}) {
                                 </h5>
                             </div>
 
-                            <p className="mb-2 text-base">
-                                from {job.minSalary} to {job.maxSalary} so'm
-                            </p>
 
                             <p className="text-xs text-gray-600">
                                 {job.location}

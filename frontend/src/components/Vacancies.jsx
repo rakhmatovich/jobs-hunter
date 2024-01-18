@@ -17,6 +17,7 @@ function Vacancies({vacancies}) {
             experience={vacancy.attributes.experience}
             description={vacancy.attributes.description}
           />
+          
         ))}
     </div>
   );

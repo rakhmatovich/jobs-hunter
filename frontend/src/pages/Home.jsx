@@ -5,17 +5,19 @@ import {Link, Navigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
 const testJobs = [
-    {id: 1, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: true},
-    {id: 2, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: true},
-    {id: 3, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: false},
-    {id: 4, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: false},
-    {id: 5, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: true},
-    {id: 6, title: 'Starter', minSalary: '2 000 000', maxSalary: '5 000 000', location: 'Tashkent', like: false},
+    {id: 1, title: 'Starter', location: 'Tashkent', like: true},
+    {id: 2, title: 'Starter', location: 'Tashkent', like: true},
+    {id: 3, title: 'Starter', location: 'Tashkent', like: false},
+    {id: 4, title: 'Starter', location: 'Tashkent', like: false},
+    {id: 5, title: 'Starter', location: 'Tashkent', like: true},
+    {id: 6, title: 'Starter',  location: 'Tashkent', like: false},
 ]
 
 function Home() {
     const [jobs, setJobs] = useState(testJobs)
     const user = localStorage.getItem('user')
+
+    const [vacancies, setVacancies] = useState(null)
 
 
     if (!user) {
@@ -35,7 +37,7 @@ function Home() {
             </div>
 
             <div className='flex w-[100%] mx-auto border-t border-gray-400'>
-                <div className="w-[50%] m-1 border-r border-gray-400 pt-10 ml-[100px]">
+                <div className="w-[30%] m-1 border-r border-gray-400 pt-10 ml-[100px]">
                     <div className="flex">
                         <a href='/replies' className='mt-[10px] hover:text-[#EB6B6B] cursor-pointer'>Replies and
                             invitations</a>

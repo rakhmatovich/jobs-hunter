@@ -5,6 +5,35 @@ import axios from "axios";
 import { JOB, JOBS } from "../utils/urls.js";
 
 function Summaries() {
+  // const experience = [
+  //   { id: 1, experience: `Doesn't matter` },
+  //   { id: 2, experience: `1-3 years` },
+  //   { id: 3, experience: `3-6 year` },
+  //   { id: 4, experience: `No experience` },
+  //   { id: 5, experience: `More than 6 years` },
+  // ];
+
+  // const workSchedule = [
+  //   { id: 1, schedule: "Full day" },
+  //   { id: 2, schedule: "Remote working" },
+  //   { id: 3, schedule: "Shift schdule" },
+  //   { id: 4, schedule: "Flexible scedules" },
+  //   { id: 5, schedule: "Rotation based work" },
+  // ];
+
+  // const region = [
+  //   { id: 1, region: "Uzbekistan" },
+  //   { id: 2, region: "UK, London" },
+  //   { id: 3, region: "Finland" },
+  //   { id: 4, region: "USA, California" },
+  //   { id: 5, region: "Tashkent, Nurabad" },
+  //   { id: 6, region: "US, New York" },
+  //   { id: 7, region: "US, Washington" },
+  //   { id: 8, region: "Bukhara" },
+  //   { id: 9, region: "UK, Norwich" },
+  //   { id: 10, region: "Russia, Moscow" }
+  // ];
+
   const [vacancies, setVacancies] = useState(null);
 
   useEffect(() => {
@@ -24,6 +53,13 @@ function Summaries() {
       .then((res) => setVacancies(res.data.data))
       .catch((err) => console.log(err));
   };
+
+  // const filter = (value) => {
+  //   axios
+  //     .get(JOBS + `&filters[title][$containsi]=${value}`)
+  //     .then((res) => setVacancies(res.data.data))
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <Layout>
@@ -46,232 +82,83 @@ function Summaries() {
           <div className="border-t border-gray-600 my-3"></div>
         </div>
         <div className="flex gap-10">
-          <div className="py-5 w-[30%] border-r border-gray-500">
+          {/* <div className="py-5 w-[30%] border-r border-gray-500">
             <div className="flex w-[100%]  flex-col">
-              <p className="font-bold mt-4 mb-2">Salary level</p>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-radio-1"
-                  type="radio"
-                  value=""
-                  name="default-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-radio-1"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Doesn't Matter
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-radio-1"
-                  type="radio"
-                  value=""
-                  name="default-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-radio-1"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  1-3 years
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-radio-1"
-                  type="radio"
-                  value=""
-                  name="default-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-radio-1"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  3-6 years
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-radio-1"
-                  type="radio"
-                  value=""
-                  name="default-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-radio-1"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  No experience
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-radio-1"
-                  type="radio"
-                  value=""
-                  name="default-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-radio-1"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  More than 6 years
-                </label>
-              </div>
+              <p className="font-bold mt-4 mb-2">Experience</p>
+              {experience &&
+                experience.map((exp) => (
+                  <a
+                    className="dropdown-item"
+                    onClick={() =>
+                      filter({
+                        key: "category",
+                        value: experience,
+                      })
+                    }
+                    key={exp.id}
+                  >
+                    <label htmlFor={exp.experience}>
+                      <input
+                        type="radio"
+                        id={exp.experience}
+                        name="experience"
+                      />
+                      {exp.experience}
+                    </label>
+                  </a>
+                ))}
             </div>
-            <div>
+            <div className="flex w-[100%]  flex-col">
               <p className="font-bold mt-4 mb-2">Work schedule</p>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Full day
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Remote working
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Shift schedule
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Flexible schedule
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Rotation based work
-                </label>
-              </div>
+              {workSchedule &&
+                workSchedule.map((work) => (
+                  <a
+                    className="dropdown-item"
+                    onClick={() =>
+                      filter({
+                        key: "workSchedule",
+                        value: workSchedule,
+                      })
+                    }
+                    key={work.id}
+                  >
+                    <label htmlFor={work.schedule}>
+                      <input
+                        type="checkbox"
+                        id={work.schedule}
+                        name="workSchedule"
+                      />
+                      {work.schedule}
+                    </label>
+                  </a>
+                ))}
             </div>
-            <div>
+            <div className="flex w-[100%]  flex-col">
               <p className="font-bold mt-4 mb-2">Region</p>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Tashkent
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Uzbekistan
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Bukhara
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Samarqand
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  id="default-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label
-                  htmlFor="default-checkbox"
-                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >
-                  Fergana
-                </label>
-              </div>
+              {region &&
+                region.map((reg) => (
+                  <a
+                    className="dropdown-item"
+                    onClick={() =>
+                      filter({
+                        key: "region",
+                        value: region,
+                      })
+                    }
+                    key={reg.id}
+                  >
+                    <label htmlFor={reg.region}>
+                      <input
+                        type="checkbox"
+                        id={reg.region}
+                        name="region"
+                      />
+                      {reg.region}
+                    </label>
+                  </a>
+                ))}
             </div>
-          </div>
+          </div> */}
           <Vacancies vacancies={vacancies} />
         </div>
       </div>

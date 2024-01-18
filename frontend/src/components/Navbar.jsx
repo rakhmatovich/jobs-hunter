@@ -19,13 +19,11 @@ function Navbar() {
             <div className="w-[80%] flex items-center justify-between py-5">
                 <div className="flex gap-4 justify-between">
                     <Link to="/summaries"
-                          className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">My
+                          className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">
                         Summaries</Link>
-                    <Link to="/replies"
-                          className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Replies</Link>
-                    <button
-                        className="px-4 py-1 text-white rounded-full bordermd:hover:bg-transparent hover:text-blue-600 md:p-1 md:px-4 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent text-xl">Search
-                    </button>
+                    <Link to='/summaries'
+                        className="px-4 py-1 text-white rounded-full bordermd:hover:bg-transparent hover:text-blue-600 md:p-1 md:px-4 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent text-xl mt-1">Search
+                    </Link>
                 </div>
                 <div className='flex gap-4 justify-between'>
                     {!user.hasSummary ?

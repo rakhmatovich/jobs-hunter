@@ -48,7 +48,7 @@ function Router() {
             <Route path="/" element={<GetStarted />} />
             <Route path="/home" element={<Home />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/replies" element={<RepliesPage />} />
+            {/* <Route path="/replies" element={<RepliesPage />} /> */}
             <Route path="/summaries" element={<Summaries />} />
             <Route path="/summaries/:id" element={<ReplyDetail />} />
             <Route path="/signup" element={<SignUp />} />

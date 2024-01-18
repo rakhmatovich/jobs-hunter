@@ -18,12 +18,6 @@ function SecondNavbar() {
                     <a href="#"
                        className="block py-2 px-3 text-white text-xl hover:text-blue-600 md:hover:text-blue-600">Help</a>
                 </div>
-                <div className='flex gap-4 justify-between'>
-                    <a href='/name'
-                       className="px-4 py-1 text-white border-gray-500 rounded-full border hover:border-white md:hover:bg-transparent md:hover:border-white md:border md:p-1 md:px-4 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Log
-                        in
-                    </a>
-                </div>
             </div>
         </nav>
     );

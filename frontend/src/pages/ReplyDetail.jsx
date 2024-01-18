@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout.jsx";
 import axios from "axios";
-import { JOB } from "../utils/urls.js";
+import { DOMAIN, JOB } from "../utils/urls.js";
 import { useParams } from "react-router-dom";
 import { convertDateFormat } from "../utils/convertDate.js";
 
-const defaultSkills = [
-  { id: 1, name: "Frontend Developer" },
-  { id: 2, name: "Backend Developer" },
-  { id: 3, name: "Django Developer" },
-  { id: 4, name: "Python Developer" },
-  { id: 5, name: "Unity Developer" },
-  { id: 6, name: "Unreal Engine Developer" },
-];
-
 function ReplyDetail() {
-  const [skills, setSkills] = useState(defaultSkills);
   const [vacancy, setVacancy] = useState(null);
 
   const { id } = useParams();
@@ -92,7 +82,15 @@ function ReplyDetail() {
             </button>
           </div>
         </div>
-        <div className="w-[25%]"></div>
+        <div className="w-[25%] m-4 border-l border-b-gray-400 p-4">
+          <img
+            className="h-[100px] mb-6"
+            src={`${DOMAIN}${vacancy?.attributes.company.data.attributes.logo.data.attributes.url}`}
+            alt="company"
+          />
+          <h1 className="text-[24px]">{vacancy?.attributes.company.data.attributes.name}</h1>
+          <p className="text-[16px]">{vacancy?.attributes.company.data.attributes.location}</p>
+        </div>
       </div>
     </Layout>
   );
