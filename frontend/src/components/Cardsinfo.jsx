@@ -1,14 +1,12 @@
 import React from "react";
-import Vacancy from "./Vacancy.jsx";
+import HomeCards from "./HomeCards";
 
-function Vacancies({vacancies}) {
-
-
+const Cardsinfo = ({ vacancies }) => {
   return (
     <div className="flex flex-col pb-10 w-full">
       {vacancies &&
         vacancies.map((vacancy) => (
-          <Vacancy
+          <HomeCards
             key={vacancy.id}
             id={vacancy.id}
             title={vacancy.attributes.title}
@@ -17,12 +15,9 @@ function Vacancies({vacancies}) {
             experience={vacancy.attributes.experience}
             description={vacancy.attributes.description}
           />
-          
         ))}
     </div>
   );
-}
+};
 
-export default Vacancies;
-
-
+export default Cardsinfo;

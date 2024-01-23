@@ -35,6 +35,7 @@ const Skills = ({ jobName }) => {
         </h6>
         <form className="flex flex-col ml-10 mt-6" onSubmit={handeSubmit}>
           <textarea
+          required={true}
             rows={5}
             type="text"
             value={description}

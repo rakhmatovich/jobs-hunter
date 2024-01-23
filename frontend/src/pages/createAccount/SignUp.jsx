@@ -63,10 +63,12 @@ function SignUp() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className='bg-blue-700 px-[60px] py-2 rounded text-whсв ite'
+                        className='bg-blue-700 px-[60px] py-2 rounded text-white'
                     >
                         Continue
                     </button>
+
+                    <a href='/login' className='text-blue-600 text-center'>Already have an account? Log in!</a>
                 </form>
             </div>
             <Footer/>

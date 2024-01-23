@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout.jsx";
 import axios from "axios";
-import { DOMAIN, JOB } from "../utils/urls.js";
-import { useParams } from "react-router-dom";
+import { CREATE_REPLY, DOMAIN, JOB } from "../utils/urls.js";
+import { useNavigate, useParams } from "react-router-dom";
 import { convertDateFormat } from "../utils/convertDate.js";
+import { toast } from "react-toastify";
 
 function ReplyDetail() {
   const [vacancy, setVacancy] = useState(null);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadInformation();
@@ -20,6 +22,27 @@ function ReplyDetail() {
       .then((res) => setVacancy(res.data.data))
       .catch(console.error);
   };
+
+  async function useReply(vacancy) {
+    const { id } = JSON.parse(localStorage.getItem("user"));
+
+    await axios
+      .post(CREATE_REPLY, {
+        data: {
+          status: "waiting",
+          user: id,
+          vacancy,
+        },
+      })
+      .then(() => {
+        toast.success("You applied for this job successfully");
+        navigate("/summaries");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Something went wrong");
+      });
+  }
 
   return (
     <Layout>
@@ -37,7 +60,10 @@ function ReplyDetail() {
               <p>{vacancy?.attributes.time?.split("-").join(" ")}</p>
               <p>{vacancy?.attributes.description}</p>
             </div>
-            <button className="rounded mt-2 py-2 px-10 bg-[#4bb24e] text-white">
+            <button
+              className="rounded mt-2 py-2 px-10 bg-[#4bb24e] text-white"
+              onClick={() => useReply(vacancy?.id)}
+            >
               Respond
             </button>
           </div>
@@ -77,7 +103,7 @@ function ReplyDetail() {
               {convertDateFormat(vacancy?.attributes.createdAt)} in{" "}
               {vacancy?.attributes.company.data.attributes.location}
             </h1>
-            <button className="rounded w-fit mt-4 py-2 px-32 bg-[#4bb24e] text-white">
+            <button className="rounded w-fit mt-4 py-2 px-32 bg-[#4bb24e] text-white" onClick={() => useReply(vacancy?.id)}>
               Respond
             </button>
           </div>
@@ -88,8 +114,12 @@ function ReplyDetail() {
             src={`${DOMAIN}${vacancy?.attributes.company.data.attributes.logo.data.attributes.url}`}
             alt="company"
           />
-          <h1 className="text-[24px]">{vacancy?.attributes.company.data.attributes.name}</h1>
-          <p className="text-[16px]">{vacancy?.attributes.company.data.attributes.location}</p>
+          <h1 className="text-[24px]">
+            {vacancy?.attributes.company.data.attributes.name}
+          </h1>
+          <p className="text-[16px]">
+            {vacancy?.attributes.company.data.attributes.location}
+          </p>
         </div>
       </div>
     </Layout>

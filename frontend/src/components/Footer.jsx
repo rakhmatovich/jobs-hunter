@@ -3,7 +3,7 @@ function Footer() {
         <div className='bg-[#222324] text-white py-[80px] px-[100px]'>
             <div className="flex">
                 <div>
-                    <h1 className='font-bold text-2xl mb-4'>Job Hunter</h1>
+                    <h1 className='font-bold text-2xl mb-4'>Jobs Hunter</h1>
                     <div className='text-gray-400 flex cursor-pointer'>
                         <div className="flex flex-col">
                             <a className='hover:text-white'>

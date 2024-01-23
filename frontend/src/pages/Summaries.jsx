@@ -53,6 +53,7 @@ function Summaries() {
       .then((res) => setVacancies(res.data.data))
       .catch((err) => console.log(err));
   };
+  
 
   // const filter = (value) => {
   //   axios

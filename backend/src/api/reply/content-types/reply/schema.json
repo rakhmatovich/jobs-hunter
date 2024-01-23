@@ -4,7 +4,8 @@
   "info": {
     "singularName": "reply",
     "pluralName": "replies",
-    "displayName": "Reply"
+    "displayName": "Reply",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,10 +21,15 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "wailting",
+        "waiting",
         "accepted",
         "denied"
       ]
+    },
+    "vacancy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job.job"
     }
   }
 }

@@ -3,6 +3,7 @@ import SummaryLayout from "../../components/SummaryLayout";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CREATE_SUMMARY } from "../../utils/urls";
+import { toast } from "react-toastify";
 
 export default function SummaryDetails({ jobName }) {
   const [phone, setPhone] = useState("+998");
@@ -12,6 +13,8 @@ export default function SummaryDetails({ jobName }) {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   
   const navigate = useNavigate()
+
+  
 
   const createSummary = () => {
     axios
@@ -43,6 +46,7 @@ export default function SummaryDetails({ jobName }) {
           <div className="mt-[10px]">
             <h1 className="font-bold">Second Name</h1>
             <input
+            required={true}
               type="text"
               value={user.lastname}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
@@ -51,6 +55,7 @@ export default function SummaryDetails({ jobName }) {
           <div className="mt-[10px]">
             <h1 className="font-bold">First Name</h1>
             <input
+            required={true}
               type="text"
               value={user.username}
               className="outline-none px-3 py-1 mt-2 border border-gray-400 w-full"
@@ -65,6 +70,7 @@ export default function SummaryDetails({ jobName }) {
               }`}
             >
               <input
+              required={true}
                 type="radio"
                 id="man"
                 name="gender"
@@ -79,6 +85,7 @@ export default function SummaryDetails({ jobName }) {
               }`}
             >
               <input
+              required={true}
                 type="radio"
                 id="woman"
                 name="gender"
@@ -90,6 +97,7 @@ export default function SummaryDetails({ jobName }) {
           <div className="mt-[10px]">
             <h1 className="font-bold">Your Region</h1>
             <input
+            required={true}
               type="text"
               value={region}
               onInput={(e) => setRegion(e.target.value)}
@@ -99,6 +107,7 @@ export default function SummaryDetails({ jobName }) {
           <div className="mt-[10px]">
             <h1 className="font-bold">Your Birthday</h1>
             <input
+            required={true}
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -108,6 +117,7 @@ export default function SummaryDetails({ jobName }) {
           <div className="mt-[10px]">
             <h1 className="font-bold">Telephone Number</h1>
             <input
+            required={true}
               type="text"
               placeholder="+998"
               value={phone}

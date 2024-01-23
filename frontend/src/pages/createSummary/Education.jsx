@@ -36,6 +36,7 @@ const Education = ({ jobName }) => {
                 className="text-[20px] my-1 flex items-center gap-2"
               >
                 <input
+                required={true}
                   type="radio"
                   id={edu.name}
                   name="educaition"

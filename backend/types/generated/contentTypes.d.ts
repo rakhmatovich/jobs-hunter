@@ -874,6 +874,7 @@ export interface ApiReplyReply extends Schema.CollectionType {
     singularName: 'reply';
     pluralName: 'replies';
     displayName: 'Reply';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -884,7 +885,8 @@ export interface ApiReplyReply extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    status: Attribute.Enumeration<['wailting', 'accepted', 'denied']>;
+    status: Attribute.Enumeration<['waiting', 'accepted', 'denied']>;
+    vacancy: Attribute.Relation<'api::reply.reply', 'oneToOne', 'api::job.job'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

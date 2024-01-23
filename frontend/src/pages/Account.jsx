@@ -25,10 +25,6 @@ function Account() {
           </div>
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-
-        <p className="text-blue-400 cursor-pointer mt-[20px] mb-[50px]">
-          Delete Account
-        </p>
       </div>
     </Layout>
   );

@@ -43,6 +43,7 @@ const EducationInformation = ({ jobName }) => {
               Name of Your Learning Facility
             </h1>
             <input
+            required={true}
               type="text"
               onInput={(e) => setFacility(e.target.value)}
               value={facility}
@@ -53,6 +54,7 @@ const EducationInformation = ({ jobName }) => {
           <div className="mt-6">
             <h1 className="text-xl font-bold mb-4">Faculity</h1>
             <input
+            required={true}
               type="text"
               onInput={(e) => setFaculity(e.target.value)}
               value={faculity}
@@ -62,6 +64,7 @@ const EducationInformation = ({ jobName }) => {
           <div className="mt-6">
             <h1 className="text-xl font-bold mb-4">Specialization</h1>
             <input
+            required={true}
               type="text"
               onInput={(e) => setSpecialization(e.target.value)}
               value={specialization}
@@ -71,6 +74,7 @@ const EducationInformation = ({ jobName }) => {
           <div className="mt-6">
             <h1 className="text-xl font-bold mb-4">Year of Ending</h1>
             <input
+            required={true}
               type="text"
               onInput={(e) => setYear(e.target.value)}
               value={year}

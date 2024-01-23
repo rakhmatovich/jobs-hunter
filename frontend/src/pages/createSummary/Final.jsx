@@ -46,6 +46,7 @@ const Final = ({ jobName }) => {
                 In What Company Did You Work?
               </h1>
               <input
+              required={true}
                 type="text"
                 className="outline-none px-3 py-1 border border-gray-400 w-full"
                 placeholder="Company Name"
@@ -55,6 +56,7 @@ const Final = ({ jobName }) => {
             <div className="mt-5">
               <h1 className="font-bold text-xl mb-3">In What Work?</h1>
               <input
+              required={true}
                 type="text"
                 className="outline-none px-3 py-1 border border-gray-400 w-full"
                 onInput={(e) => setWork(e.target.value)}
@@ -66,6 +68,7 @@ const Final = ({ jobName }) => {
               </h1>
               <textarea
                 type="text"
+                required={true}
                 className="outline-none px-3 py-1 border border-gray-400 w-full"
                 onInput={(e) => setWorkDetail(e.target.value)}
               />
@@ -76,6 +79,7 @@ const Final = ({ jobName }) => {
               <h1 className="font-bold text-xl mb-3">Work Start</h1>
               <input
                 type="date"
+                required={true}
                 className="outline-none px-3 py-1 border border-gray-400 "
                 onInput={(e) => setWorkStart(e.target.value)}
               />
@@ -85,6 +89,7 @@ const Final = ({ jobName }) => {
               {!current && (
                 <input
                   type="date"
+                  required={true}
                   className="outline-none px-3 py-1 border border-gray-400"
                   onInput={(e) => setWorkEnd(e.target.value)}
                 />
@@ -92,6 +97,7 @@ const Final = ({ jobName }) => {
               <label htmlFor="" className="flex items-center mt-2">
                 <input
                   type="checkbox"
+                  required={true}
                   className="mr-2 w-4 h-4"
                   value={current}
                   onChange={(e) => setCurrent((p) => !p)}
